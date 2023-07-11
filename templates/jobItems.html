@@ -1,0 +1,16 @@
+<div class="border-bottom row" style="margin-bottom: 16px; padding-bottom: 8px;">
+    <div class="col-10">
+        <h4 style="margin-bottom: 4px;">
+            <h4 class="mb-3">{{ job.job_title}}</h4>
+            <div class="mb-3 d-flex"><b>Location: </b>{{ job.job_location }}</div>
+            <div class="mb-3 float-start"><b>Job Description: </b>{{ job.job_description }}</div>
+            <div class="mb-3"><b>Job Required skills: </b>{{ job.job_required_skills }}</div>
+            <div class="mb-3"><b>Job Required Experience: </b>{{ job.job_required_experience }}</div>
+            <div class="mb-3"><b>Salary: </b>{{ job.job_salary }}</div>
+            <div><b>Date: </b>{{ job.job_created_at }}</div>
+        </h4>
+    </div>
+    <div class="col-2" style="padding-right: 16px;">
+        <a href="/jobs/{{job.id}}" type="button" class="btn btn-outline-success" style="color: #008080;">Apply</a>
+    </div>
+</div>

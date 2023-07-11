@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    {% include 'bootstrap.html' %}
+    {% include 'icons.html' %}
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="container mt-4 mb-2 border border-info-subtle" style="height: 750px; width: 1000px; padding-top: 100px;">
+    <h4 style="text-align: center;" class="mb-5">SignUp</h4>    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flashes">
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <form action="/auth/signup" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="Username" placeholder="John Ofem" required>
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" name="Email" placeholder="ofemjohn@gmail.com" required>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" name="Password" placeholder="1234" required> 
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">Country</label>
+            <input type="text" class="form-control" id="inputCity" name="Country" placeholder="Nigeria" required>
+          </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" name="Address" placeholder="1234 Main St" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-info">Sign up</button>
+        </div>
+        <p>Already have an account? <a href="/auth/login">Login</a></p>
+
+      </form>
+    </div>
+    {% include 'footer.html' %}
+    {% include 'scripts.html' %}
+</body>
+</html>

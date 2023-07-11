@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">
+      <img src="/static/logo.jpeg" style="height: 40px; width: 50px; border-radius: 15px;" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex flex-grow-1">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      {% if current_user.is_authenticated %}
+      <div style="margin-left: 34px;">
+        <a href="/auth/signup" class="btn btn-outline-success">Sign Out</a>
+      </div>
+      <div style="margin-left: 34px;">
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-success">Dashboard</a>
+      </div>
+      {% else %}
+      <div style="margin-left: 34px;">
+        <a href="/auth/signup" class="btn btn-outline-success">Sign in</a>
+      </div>
+      {% endif %}
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div style="margin-left: 34px;">
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-success">Employers / Post Job</button>
+        </li>
+      </div>
+        <!-- Example split danger button -->
+      <!-- Example single danger button -->
+      <div class="dropdown" style="margin-left: 20px; margin-right: 20px;">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+         EXPLORE
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">About</a></li>
+          <li><a class="dropdown-item" href="#">Portfolio</a></li>
+          <li><a class="dropdown-item" href="#">Blog</a></li>
+        </ul>
+      </div>
+      
+        <li class="nav-item">
+          <li class="nav-item">
+            <a href="/home" class="btn btn-outline-success">Home</a>
+          </li>          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
